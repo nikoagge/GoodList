@@ -6,15 +6,30 @@
 //
 
 import UIKit
+import RxSwift
 
 final class TaskListViewController: UIViewController {
     @IBOutlet weak var prioritySegmentedControl: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
     
+    let disposeBag = DisposeBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupUI()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let navigationController = segue.destination as? UINavigationController,
+              let addTaskViewController = navigationController.viewControllers.first as? AddTaskViewController else {
+            fatalError("Controller not found...")
+        }
+        
+        addTaskViewController.taskSubjectObservable
+            .subscribe(onNext: { task in
+                
+            }).disposed(by: disposeBag)
     }
 }
 
