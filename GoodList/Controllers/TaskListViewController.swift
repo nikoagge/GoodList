@@ -10,6 +10,12 @@ import UIKit
 final class TaskListViewController: UIViewController {
     @IBOutlet weak var prioritySegmentedControl: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setupUI()
+    }
 }
 
 // MARK: UITableViewDataSource, UITableViewDelegate
@@ -22,5 +28,12 @@ extension TaskListViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TaskTableViewCell", for: indexPath)
         
         return cell
+    }
+}
+
+// MARK: - UI
+private extension TaskListViewController {
+    func setupUI() {
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
 }
