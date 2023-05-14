@@ -74,7 +74,7 @@
         <!--Add Task-->
         <scene sceneID="ao9-wO-Q8s">
             <objects>
-                <viewController id="0j5-ia-rt3" customClass="AddTaskViewController" sceneMemberID="viewController">
+                <viewController id="0j5-ia-rt3" customClass="AddTaskViewController" customModule="GoodList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tt7-Uv-BLx">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -107,8 +107,16 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add Task" id="Qyx-Ed-EH2">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Ut2-oX-Ocs"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Ut2-oX-Ocs">
+                            <connections>
+                                <action selector="save" destination="0j5-ia-rt3" id="cyx-jh-1cw"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="prioritySegmentedControl" destination="A9l-h3-VMu" id="MsM-6G-WKm"/>
+                        <outlet property="taskTitleTextField" destination="5nQ-fl-q5T" id="19S-Qx-KUY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CNb-8O-bVJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
